@@ -1,4 +1,3 @@
 <div *ngFor="let file of files$ | async">
-    <app-tile-file [fileName]="file.name" [fileId]="file.id" [devices$]="devices$"
-        (updatedListDevicesEvent)="updatedListDevices($event)"></app-tile-file>
+    <app-tile-file [fileName]="file.name" [fileId]="file.id" (updatedEvent)="updated($event)"></app-tile-file>
 </div>

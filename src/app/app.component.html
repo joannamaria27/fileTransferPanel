@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <div class="container">
   <div class="left">
-    <app-list-tile-file [files$]="files$" [devices$]="devices$" (updatedListDevicesEvent)="updatedListDevices($event)">
+    <app-list-tile-file [files$]="files$" (updatedEvent)="updated($event)">
     </app-list-tile-file>
   </div>
   <app-list-tile-device [files$]="files$" [devices$]="devices$">

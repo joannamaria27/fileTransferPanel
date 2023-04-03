@@ -19,9 +19,6 @@ export class ApiService {
   public getAllDevices(): Observable<Device[]> {
     return this.http.get<Device[]>(this.apiUrl + 'devices');
   }
-  getDeviceFiles(deviceId: number): Observable<DeviceFile[]> {
-    return this.http.get<DeviceFile[]>(`${this.apiUrl}devices/${deviceId}/files`);
-  }
   public updateDevice(deviceId: number, updatedDevice: Device) {
     return this.http.patch<Device>(this.apiUrl + 'devices/' + deviceId, updatedDevice);
   }

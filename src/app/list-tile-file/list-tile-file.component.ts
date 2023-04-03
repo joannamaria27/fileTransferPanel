@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ApiService } from '../service/api.service';
 import { File } from '../models/file';
-import { Device } from '../models/device';
 
 @Component({
   selector: 'app-list-tile-file',
@@ -11,10 +9,9 @@ import { Device } from '../models/device';
 })
 export class ListTileFileComponent {
   @Input() files$: Observable<File[]> = of([]);
-  @Input() devices$: Observable<Device[]> = of([]);
-  @Output() updatedListDevicesEvent = new EventEmitter<Observable<Device[]>>();
+  @Output() updatedEvent = new EventEmitter<number>();
 
-  updatedListDevices(updatedDevices: Observable<Device[]>) {
-    this.updatedListDevicesEvent.emit(updatedDevices);
+  updated(updated: number) {
+    this.updatedEvent.emit(updated);
   }
 }

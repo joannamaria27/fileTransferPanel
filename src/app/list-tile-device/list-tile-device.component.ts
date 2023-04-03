@@ -1,6 +1,5 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ApiService } from '../service/api.service';
 import { File } from '../models/file';
 import { Device } from '../models/device';
 
