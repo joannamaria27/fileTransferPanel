@@ -15,13 +15,12 @@ export class AppComponent implements OnInit {
 
   files$: Observable<File[]> = of([]);
   devices$: Observable<Device[]> = of([]);
-  updatedDevice: Observable<Device[]> = of([]);
+  //updatedDevice: Observable<Device[]> = of([]);
   downloadQueue: { fileId: number, deviceId: number }[] = [];
   deviceBusy: Array<boolean> = [];
   fileBusy: Array<boolean> = [];
   updatedFileId: number = 0
 
-  flaga = true;
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
@@ -83,9 +82,6 @@ export class AppComponent implements OnInit {
         this.deviceBusy[deviceId] = true;
         this.fileBusy[fileId] = true;
         this.download(size, download, deviceId, fileId);
-        if (i === this.downloadQueue.length) {
-          this.flaga = false;
-        }
       }
     }
   }
@@ -94,7 +90,6 @@ export class AppComponent implements OnInit {
     const intervalId = setInterval(() => {
       remainingSize -= downloadDevice;
       let value = Math.min((fileSize - remainingSize) / fileSize, 1);
-      console.log(value)
       this.devices$.subscribe((devices => {
         devices.map(device => {
           if (device.id === deviceId) {
@@ -108,12 +103,18 @@ export class AppComponent implements OnInit {
         remainingSize = 0;
       if (remainingSize === 0) {
         clearInterval(intervalId);
-        this.devices$.pipe(
-          map(devices => devices.find(device => {
+
+        this.devices$.subscribe(devices => {
+          devices.map((device, indexDevice) => {
             if (device.id === deviceId) {
-              this.api.updateDevice(deviceId, device);
+              this.api.updateDevice(device.id, device).subscribe(updatedDevice => {
+                this.devices$.subscribe((devices) => {
+                  devices[indexDevice] = device;
+                })
+              })
             }
-          })))
+          })
+        })
         for (let i = 0; i < this.downloadQueue.length; i++) {
           if (this.downloadQueue[i].deviceId === deviceId && this.downloadQueue[i].fileId === fileId) {
             this.downloadQueue.splice(i, 1);
