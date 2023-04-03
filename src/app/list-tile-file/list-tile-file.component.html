@@ -1,0 +1,3 @@
+<div *ngFor="let file of files$ | async">
+    <app-tile-file [fileName]="file.name"></app-tile-file>
+</div>
