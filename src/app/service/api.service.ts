@@ -22,7 +22,7 @@ export class ApiService {
   getDeviceFiles(deviceId: number): Observable<DeviceFile[]> {
     return this.http.get<DeviceFile[]>(`${this.apiUrl}devices/${deviceId}/files`);
   }
-  updateDevice(deviceId: number, updatedDevice: Device) {
+  public updateDevice(deviceId: number, updatedDevice: Device) {
     return this.http.patch<Device>(this.apiUrl + 'devices/' + deviceId, updatedDevice);
   }
 }

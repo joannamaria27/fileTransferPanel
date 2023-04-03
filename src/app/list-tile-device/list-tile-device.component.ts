@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, Output } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { ApiService } from '../service/api.service';
 import { File } from '../models/file';
 import { Device } from '../models/device';
@@ -10,10 +10,6 @@ import { Device } from '../models/device';
   styleUrls: ['./list-tile-device.component.sass']
 })
 export class ListTileDeviceComponent {
-  files$: Observable<File[]> = this.api.getAllFiles();
-  devices$: Observable<Device[]> = this.api.getAllDevices();
-
-  constructor(private api: ApiService) { }
-
-
+  @Input() devices$: Observable<Device[]> = of([]);
+  @Input() files$: Observable<File[]> = of([]);
 }
