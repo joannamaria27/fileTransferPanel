@@ -14,4 +14,6 @@ export class ListTileDeviceComponent {
   devices$: Observable<Device[]> = this.api.getAllDevices();
 
   constructor(private api: ApiService) { }
+
+
 }

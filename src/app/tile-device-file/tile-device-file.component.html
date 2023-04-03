@@ -1,5 +1,5 @@
 <div class="tile">
     <div class="title">{{deviceFileName}}</div>
-    <div class="progress-bar">
+    <div class="progress-bar" [style.width.%]="(progressBar | async)">
     </div>
 </div>

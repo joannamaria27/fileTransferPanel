@@ -4,7 +4,7 @@
         <div *ngFor="let file of device.files">
             <div *ngFor="let f of files$ | async">
                 <div *ngIf="file.id==f.id">
-                    <app-tile-device-file [deviceFileName]="f.name"></app-tile-device-file>
+                    <app-tile-device-file [deviceFileName]="f.name" [progress]="file.progress"></app-tile-device-file>
                 </div>
             </div>
         </div>
