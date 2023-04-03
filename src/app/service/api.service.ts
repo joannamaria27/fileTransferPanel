@@ -16,7 +16,7 @@ export class ApiService {
   public getAllFiles(): Observable<File[]> {
     return this.http.get<File[]>(this.apiUrl + 'files');
   }
-  getDevices(): Observable<Device[]> {
+  public getAllDevices(): Observable<Device[]> {
     return this.http.get<Device[]>(this.apiUrl + 'devices');
   }
   getDeviceFiles(deviceId: number): Observable<DeviceFile[]> {
