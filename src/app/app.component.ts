@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
 
   files$: Observable<File[]> = of([]);
   devices$: Observable<Device[]> = of([]);
-  //updatedDevice: Observable<Device[]> = of([]);
   downloadQueue: { fileId: number, deviceId: number }[] = [];
   deviceBusy: Array<boolean> = [];
   fileBusy: Array<boolean> = [];
@@ -103,7 +102,6 @@ export class AppComponent implements OnInit {
         remainingSize = 0;
       if (remainingSize === 0) {
         clearInterval(intervalId);
-
         this.devices$.subscribe(devices => {
           devices.map((device, indexDevice) => {
             if (device.id === deviceId) {

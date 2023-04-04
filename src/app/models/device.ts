@@ -13,11 +13,10 @@ export class Device implements IDevice {
     download: number;
     files: DeviceFile[];
 
-    constructor(id: number, name: string, download: number, files: DeviceFile[], values: Object = {}) {
+    constructor(id: number, name: string, download: number, files: DeviceFile[]) {
         this.id = id;
         this.name = name;
         this.download = download;
         this.files = files;
-        Object.assign(this, values);
     }
 }
