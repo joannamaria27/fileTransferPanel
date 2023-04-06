@@ -1,4 +1,14 @@
 # FileTransferPanelApp
+:sparkles: When launched, the application loads files and devices and displays the current status.
+:sparkles: Clicking a file tile in the list of all files selects it. 
+:sparkles: In the same multiple files may be selected at a time. 
+:sparkles: The file could not be deselected. 
+:sparkles: File selection adds it to devices that don't have it yet and saves the changes to the backend.
+:sparkles: A new file added to the device has a download progress of 0. 
+:sparkles: The device is downloading the file at speed specified for device. 
+:sparkles: A given device can only download 1 file at a time. 
+:sparkles: Given file can be downloaded by only 1 device at a time. 
+:sparkles: Completing the file download saves changes to the backend. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
