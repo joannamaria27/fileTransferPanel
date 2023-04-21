@@ -10,6 +10,12 @@
 :sparkles: Given file can be downloaded by only 1 device at a time. 
 :sparkles: Completing the file download saves changes to the backend. 
 
+<img width="843" alt="fileTransferPanel-1" src="https://user-images.githubusercontent.com/49189136/233623236-16c89523-e58c-4098-b637-2f488c7ad688.png">
+<img width="842" alt="fileTransferPanel-2" src="https://user-images.githubusercontent.com/49189136/233623404-84922451-0e71-4b96-bb39-fb4798ff6bff.png">
+<img width="843" alt="fileTransferPanel-3" src="https://user-images.githubusercontent.com/49189136/233623565-9fd0e02e-c1cc-41eb-a6af-65d1f958a934.png">
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
 ## Development server
